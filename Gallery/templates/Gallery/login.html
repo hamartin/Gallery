@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'> 
+<html xmlns='http://www.w3.org/1999/xhtml'>
+
+    <head>
+        <title>Gallery - http://gallery.moshwire.com</title>
+        <link rel='stylesheet' href='{{ MEDIA_URL }}css/stylesheet.css' type='text/css' /> 
+        <meta http-equiv='Content-type' content='text/html;charset=UTF-8' /> 
+    </head>
+
+    <body>
+        <div id='def-body-wrapper'>
+            <div id='def-header-wrapper'>
+                <h1>Gallery</h1>
+                <div class='def-header-footer-link'>
+                    <a href='http://gallery.moshwire.com'>Home of Gallery</a>
+                </div>
+            </div>
+            {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+            <form method="post" action="{% url django.contrib.auth.views.login %}">
+            {% csrf_token %}
+                <center>
+                    <table>
+                        <tr>
+                            <td>{{ form.username.label_tag }}</td>
+                            <td>{{ form.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form.password.label_tag }}</td>
+                            <td>{{ form.password }}</td>
+                        </tr>
+                    </table>
+
+                    <input type="submit" value="login" />
+                    <input type="hidden" name="next" value="{{ next }}" />
+                </center>
+            </form>
+            <div id='def-footer-wrapper'>
+                <div class='def-header-footer-link'>
+                    <a href='http://gallery.moshwire.com'>Home of Gallery</a> 
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

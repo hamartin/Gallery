@@ -1,0 +1,28 @@
+{% include 'Gallery/header.html' %}
+{% block body-content %}
+{% if albums %}
+{% for album in albums %}
+            <div class='def-album-box'>
+                <div class='def-album-picture-box'>
+                {% if album.index_image_filename %}
+                    <a class='def-album-picture-box-picture' href='{{ album.name_spaces_to_underscores }}'>
+                        <img src='{{ MEDIA_URL }}albums/{{ album.path }}{{ album.index_image_filename }}' alt='{{ album.index_image_filename }}' />
+                    </a>
+                {% else %}
+                    <div class='def-album-picture-box-picture'></div>
+                {% endif %}
+                {% if album.name %}
+                        <br><br>
+                        <a href='{{ album.name_spaces_to_underscores }}'>{{ album.name }}</a>
+                {% else %}
+                        <br><br>
+                        <a href='{{ album.id }}'>{{ album.album_id }}</a>
+                {% endif %}
+                    </div>
+                </div>
+{% endfor %}
+{% else %}
+                <h2>No albums in media folder.</h2>
+{% endif %}
+{% endblock body-content %}
+{% include 'Gallery/footer.html' %}

@@ -1,0 +1,47 @@
+{% extends 'Gallery/base.html' %}
+{% block body-content %}
+{% if requestedPicture %}
+            <img id='def-big-picture' src='{{ MEDIA_URL }}albums/{{ requestedAlbum.path }}MS_{{ requestedPicture.filename }}' alt='{{ requestedPicture.filename }}' />
+{% if requestedPicture.comment %}
+            <div id='def-big-picture-comment'>
+                <p>{{ requestedPicture.comment }}</p>
+            </div>
+{% endif %}
+            <br><br>
+            <center>
+                {% if request.user.is_authenticated %}
+
+                <table width='100%'>
+                    <tr align='center'>
+                        <td>
+                            <a href='{{ requestedPicture.filename }}/rotate/90' alt='Rotate left'>
+                                <img src='/media/arrow-l.gif' />
+                            </a>
+                            <a href='{{ requestedPicture.filename }}/rotate/270' alt='Rotate right'>
+                                <img src='/media/arrow-r.gif' />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+
+                <form action='/{{ requestedAlbum.name }}/{{ requestedPicture.filename }}/addComment' method='post'>
+                    {% csrf_token %}
+                    {% if form.is_valid %}
+                    {{ form.as_p }}
+                    {% else %}
+                    <p>
+                        <label for='id_comment'>Comment: </label>
+                        <input id='id_comment' type='text' name='comment' maxlength='200' />
+                        <input type='submit' value='Submit' />
+                    </p>
+                    {% endif %}
+                </form>
+                {% else %}
+                <a href='{{ MEDIA_URL }}albums/{{ requestedAlbum.path }}{{ requestedPicture.filename }}'>Download original</a>
+                {% endif %}
+            </center>
+            <br>
+{% else %}
+            <h2>This picture does not exist.</h2>
+{% endif %}
+{% endblock body-content %}

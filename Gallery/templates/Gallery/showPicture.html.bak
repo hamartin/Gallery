@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'> 
+<html xmlns='http://www.w3.org/1999/xhtml'> 
+
+    <head>
+    {% block title %}
+    {% if options.title %}
+        <title>{{ options.title }}</title>
+    {% else %}
+        <title>No title has been set</title>
+    {% endif %}
+    {% endblock title %}
+        <link rel='stylesheet' href='/media/css/stylesheet.css' type='text/css' /> 
+        <meta http-equiv='Content-type' content='text/html;charset=UTF-8' /> 
+    </head>
+
+    <body>
+        <div id='def-body-wrapper'>
+
+            <div id='def-header-wrapper'>
+                <table width='100%'>
+                    <tr align='center'>
+                        <td>
+                            {% block header-title %}
+                            {% if options.title %}
+                            <h1>{{ options.title }}</h1>
+                            {% else %}
+                            <h1>No title has been set</h1>
+                            {% endif %}
+                            {% endblock header-title %}
+                            <div class='def-header-footer-link'>
+                            {% if options.url %}
+                                <a href='{{ options.url }}'>{{ options.url }}</a>
+                            {% else %}
+                                <a href='http://gallery.moshwire.com'>Home of Gallery</a>
+                            {% endif %}
+                            </div>
+                        </td>
+                        {% if request.user.is_authenticated %}
+                        <td align='right'>
+                            <a href='/update/' alt='update'>
+                                <img src='/media/update.gif' />
+                            </a>
+                            <a href='/log_out/' alt='log out'>
+                                <img src='/media/log_out.gif' />
+                            </a>
+                        </td>
+                        {% else %}
+                        <td align='right'>
+                            <a href='/log_in/' alt='log in'>
+                                <img src='/media/log_in.gif' />
+                            </a>
+                        </td>
+                        {% endif %}
+                    </tr>
+                </table>
+            </div>

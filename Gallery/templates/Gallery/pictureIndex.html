@@ -1,0 +1,19 @@
+{% extends 'Gallery/base.html' %}
+{% block body-content %}
+{% if requestedPictures %}
+{% for picture in requestedPictures %}
+            <div class='def-album-box'>
+                <div class='def-album-picture-box'>
+                    <a class='def-album-picture-box-picture' href='http://photos.moshwire.com/{{ requestedAlbum.name_spaces_to_underscores }}/{{ picture.filename }}'>
+                        <img src='{{ MEDIA_URL }}albums/{{ requestedAlbum.path }}T_{{ picture.filename }}' alt='{{ picture.filename }}' />
+                    </a>
+                    {% if picture.comment %}
+                    <p>{{ picture.comment }}</p>
+                    {% endif %}
+                </div>
+            </div>
+{% endfor %}
+{% else %}
+            <h2>No pictures in album folder.</h2>
+{% endif %}
+{% endblock body-content %}
