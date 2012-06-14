@@ -1,0 +1,113 @@
+body {
+    font-family: FreeMono, Monospace, Verdana, Helvetica, sans-serif, Geneva, Arial;
+    font-size: 12px;
+    background-color: #111;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+}
+
+#def-body-wrapper {
+    min-height: 500px;
+    padding: 0;
+    margin: 30px 0 40px 0;
+    text-align: center;
+    background-color: #00B25C;
+}
+
+#def-header-wrapper {
+    width: 100%;
+    margin: 0 auto 20px auto;
+    border-top: 10px solid #002f19;
+    background-color: #00733C;
+    box-shadow: 0 2px 5px #222;
+    -moz-box-shadow: 0 2px 5px #222;
+    -webkit-box-shadow: 0 2px 5px #222;
+    padding: 10px;
+    text-align: center;
+    color: #000;
+}
+
+#def-header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+#def-footer-wrapper {
+    position: fixed;
+    width: 100%;
+    min-height: 25px;
+    margin: 0;
+    border-bottom: 5px solid #002f19;
+    background-color: #00733C;
+    box-shadow: 0 -2px 5px #222;
+    -moz-box-shadow: 0 -2px 5px #222;
+    -webkit-box-shadow: 0 -2px 5px #222;
+    padding: 7px;
+    text-align: center;
+    color: #333333;
+    bottom: 0;
+}
+
+.def-header-footer-link {
+    font-size: 10px;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.def-album-box {
+    width: 230px;
+    height: 250px;
+    margin: 5px;
+    padding: 0px;
+    text-align: center;
+    vertical-align: top;
+    display: -moz-inline-stack;
+    display: inline-block;
+}
+
+.def-album-box h2 {
+    color: #000;
+}
+
+.def-album-picture-box {
+    width: 210;
+    height: 200px;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+    background-color: #ccc;
+    border: 2px solid #111;
+    vertical-align: top;
+    text-align: center;
+}
+
+.def-album-picture-box-picture {
+    width: 180px;
+    height: 130px;
+    margin: 5px;
+    padding: 0px;
+    text-align: center;
+}
+
+.def-album-picture-box a {
+    font-weight: bold;
+    text-align: center;
+}
+
+a, a:visited {
+    color: #000;
+}
+
+#def-big-picture {
+    margin: 0 auto;
+    border: 2px solid #13001A;
+}
+
+#def-big-picture-comment p {
+    font-family: FreeMono, Monospace, Verdana, Helvetica, sans-serif, Geneva, Arial;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
